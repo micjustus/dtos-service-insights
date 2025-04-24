@@ -1,7 +1,7 @@
 variable "capacity" {
   description = "When sku is Premium, capacity can be 1, 2, 4, 8 or 16. When sku is Basic or Standard, capacity must be 0."
   type        = number
-  default     = 1
+  default     = 0
   validation {
     condition = (
       (var.sku_tier == "Premium" && contains([1, 2, 4, 8, 16], var.capacity)) ||
