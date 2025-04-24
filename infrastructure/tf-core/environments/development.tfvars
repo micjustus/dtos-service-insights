@@ -135,6 +135,21 @@ app_service_plan = {
   }
 }
 
+# service_bus = {
+#   namespace = {
+#     capacity =1
+#     max_playload_size = "100mb"
+#     breast_screening = {
+#       topic1 = {
+#       },
+#       topic2 = {
+#       },
+#       topic3 = {
+#       }
+#     }
+#   }
+# }
+
 diagnostic_settings = {
   metric_enabled = true
 }

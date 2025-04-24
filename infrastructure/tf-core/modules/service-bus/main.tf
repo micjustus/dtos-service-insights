@@ -12,5 +12,5 @@ resource "azurerm_servicebus_topic" "this" {
   name         = var.servicebus_topic_name
   namespace_id = azurerm_servicebus_namespace.this.id
 
-  partitioning_enabled = true
+  partitioning_enabled = false
 }
