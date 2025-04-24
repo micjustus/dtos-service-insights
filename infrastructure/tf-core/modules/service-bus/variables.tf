@@ -27,6 +27,10 @@ variable "premium_messaging_partitions" {
   default     = 1
 }
 
+variable "public_network_access_enabled" {
+  type    = bool
+  default = false
+}
 
 variable "partitioning_enabled" {
   description = "Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created."
