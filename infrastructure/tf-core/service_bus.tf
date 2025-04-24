@@ -1,4 +1,4 @@
-module "azure_sql_server" {
+module "azure_service_bus" {
   for_each = var.regions
 
   source = "./modules/service-bus"
