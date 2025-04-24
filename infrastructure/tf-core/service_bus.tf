@@ -1,7 +1,7 @@
 module "azure_sql_server" {
   for_each = var.regions
 
-  source = "modules/service-bus"
+  source = "./modules/service-bus"
 
   servicebus_topic_name     = "servicebus_topic"
   servicebus_namespace_name = "servicebus_namespace"
@@ -9,7 +9,6 @@ module "azure_sql_server" {
   location                  = each.key
   capacity                  = 1
   sku_tier                  = "Premium"
-
 
   tags = var.tags
 }
