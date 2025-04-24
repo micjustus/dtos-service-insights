@@ -21,6 +21,19 @@ variable "location" {
   }
 }
 
+variable "premium_messaging_partitions" {
+  description = "Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created."
+  type        = number
+  default     = 1
+}
+
+
+variable "partitioning_enabled" {
+  description = "Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created."
+  type        = bool
+  default     = false
+}
+
 variable "resource_group_name" {
   type        = string
   description = "The name of the resource group in which to create the Event Grid. Changing this forces a new resource to be created."

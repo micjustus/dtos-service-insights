@@ -1,9 +1,10 @@
 resource "azurerm_servicebus_namespace" "this" {
-  name                = var.servicebus_namespace_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  sku                 = var.sku_tier
-  capacity            = var.capacity
+  name                         = var.servicebus_namespace_name
+  location                     = var.location
+  resource_group_name          = var.resource_group_name
+  sku                          = var.sku_tier
+  capacity                     = var.capacity
+  premium_messaging_partitions = var.premium_messaging_partitions
 
   tags = var.tags
 }
