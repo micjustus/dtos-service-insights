@@ -135,20 +135,51 @@ app_service_plan = {
   }
 }
 
-# service_bus = {
-#   namespace = {
-#     capacity =1
-#     max_playload_size = "100mb"
-#     breast_screening = {
-#       topic1 = {
-#       },
-#       topic2 = {
-#       },
-#       topic3 = {
-#       }
-#     }
-#   }
-# }
+service_bus = {
+  breast_screening = {
+    namespace_name    = "dtoss_breast_screening"
+    capacity          = 1
+    sku_tier          = "Premium"
+    max_playload_size = "100mb"
+    topics = {
+      1 = {
+        name                 = "episode_uploaded",
+        status               = "Active",
+        partitioning_enabled = false
+      },
+      2 = {
+        name                 = "episode_created",
+        status               = "Active",
+        partitioning_enabled = false
+      },
+      3 = {
+        name                 = "episode_cancelled",
+        status               = "Active",
+        partitioning_enabled = false
+      }
+    }
+  },
+  bowl_screening = {
+    namespace_name    = "dtoss_bowl_screening"
+    capacity          = 1
+    sku_tier          = "Premium"
+    max_playload_size = "100mb"
+    topics = {
+      1 = {
+        name   = "episode_uploaded",
+        status = "Active"
+      },
+      2 = {
+        name   = "episode_created",
+        status = "Active"
+      },
+      3 = {
+        name   = "episode_cancelled",
+        status = "Active"
+      }
+    }
+  }
+}
 
 diagnostic_settings = {
   metric_enabled = true

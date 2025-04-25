@@ -417,3 +417,18 @@ variable "event_grid_defaults" {
     public_network_access_enabled = bool
   })
 }
+
+variable "service_bus" {
+  description = "Configuration for Service Bus namespaces and their topics"
+  type = map(object({
+    namespace_name    = string
+    capacity          = number
+    sku_tier          = string
+    max_playload_size = string
+    topics = list(object({
+      name                 = string
+      status               = string
+      partitioning_enabled = bool
+    }))
+  }))
+}

@@ -56,13 +56,13 @@ variable "servicebus_namespace_name" {
   }
 }
 
-variable "servicebus_topic_name" {
-  description = "The name of the Service Bus topic."
-  type        = string
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9\\-\\.]{1,260}$", var.servicebus_topic_name))
-    error_message = "The topic name must be 1-260 characters long and may contain letters, numbers, hyphens, and periods."
-  }
+variable "servicebus_topic_list" {
+  description = "A list of Service Bus topic names."
+  type        = list(string)
+  # validation {
+  #   condition     = can(regex("^[a-zA-Z0-9\\-\\.]{1,260}$", var.servicebus_topic_name))
+  #   error_message = "The topic name must be 1-260 characters long and may contain letters, numbers, hyphens, and periods."
+  # }
 }
 
 variable "sku_tier" {
