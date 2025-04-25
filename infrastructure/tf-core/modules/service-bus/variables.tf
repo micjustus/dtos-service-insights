@@ -65,6 +65,15 @@ variable "servicebus_topic_list" {
   # }
 }
 
+variable "servicebus_topic_map" {
+  type = map(object({
+    name                 = optional(string)
+    status               = optional(string)
+    partitioning_enabled = optional(string)
+  }))
+  default = {}
+}
+
 variable "sku_tier" {
   description = "The tier of the SKU."
   type        = string
