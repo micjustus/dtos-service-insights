@@ -5,6 +5,7 @@ resource "azurerm_servicebus_namespace" "this" {
   sku                          = var.sku_tier
   capacity                     = var.capacity
   premium_messaging_partitions = var.premium_messaging_partitions
+  public_network_access_enabled = var.public_network_access_enabled
 
   tags = var.tags
 }
