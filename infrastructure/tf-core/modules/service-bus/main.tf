@@ -11,7 +11,7 @@ resource "azurerm_servicebus_namespace" "this" {
 }
 
 resource "azurerm_servicebus_topic" "this" {
-  for_each = var.servicebus_topic_name
+  for_each = var.servicebus_topic_list
 
   name         = each.value.name
   status       = each.value.status
