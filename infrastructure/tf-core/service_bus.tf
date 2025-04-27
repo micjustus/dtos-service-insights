@@ -4,8 +4,8 @@ module "azure_service_bus" {
   source = "./modules/service-bus"
 
   servicebus_topic_map      = each.value.topics
-  servicebus_namespace_name = each.value.namespace_name
-  resource_group_name       = azurerm_resource_group.core[each.key].name
+  servicebus_namespace_name = coalesce(each.value.namespace_name, each.key)
+  resource_group_name       = azurerm_resource_group.core[each.value.region].name
   location                  = each.value.region
   capacity                  = 1
   sku_tier                  = each.value.sku_tier

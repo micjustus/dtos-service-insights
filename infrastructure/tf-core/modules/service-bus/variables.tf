@@ -67,7 +67,7 @@ variable "servicebus_namespace_name" {
 
 variable "servicebus_topic_map" {
   type = map(object({
-    name                 = optional(string)
+    topic_name = optional(string)
     status               = optional(string)
     partitioning_enabled = optional(string)
   }))

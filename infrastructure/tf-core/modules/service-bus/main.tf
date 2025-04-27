@@ -13,7 +13,7 @@ resource "azurerm_servicebus_namespace" "this" {
 resource "azurerm_servicebus_topic" "this" {
   for_each = var.servicebus_topic_map
 
-  name         = each.value.name
+  name         = coalesce(each.value.topic_name, each.key)
   status       = each.value.status
   namespace_id = azurerm_servicebus_namespace.this.id
 

@@ -421,14 +421,14 @@ variable "event_grid_defaults" {
 variable "service_bus" {
   description = "Configuration for Service Bus namespaces and their topics"
   type = map(object({
-    namespace_name    = string
+    namespace_name = optional(string)
     capacity          = number
     sku_tier          = string
-    max_playload_size = string
-    topics = list(object({
-      name                 = string
-      status               = string
-      partitioning_enabled = bool
+    max_payload_size = string
+    topics = map(object({
+      topic_name      = optional(string)
+      status          = optional(string, "Active")
+      partitioning_enabled = optional(bool, false)
     }))
   }))
 }

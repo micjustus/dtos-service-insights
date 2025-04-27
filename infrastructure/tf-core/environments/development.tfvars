@@ -136,47 +136,25 @@ app_service_plan = {
 }
 
 service_bus = {
-  breast_screening = {
-    namespace_name    = "dtoss_breast_screening"
+  dtoss-breast-screening = {
     capacity          = 1
     sku_tier          = "Premium"
-    max_playload_size = "100mb"
+    max_payload_size = "100mb"
     topics = {
-      1 = {
-        name                 = "episode_uploaded",
-        status               = "Active",
-        partitioning_enabled = false
-      },
-      2 = {
-        name                 = "episode_created",
-        status               = "Active",
-        partitioning_enabled = false
-      },
-      3 = {
-        name                 = "episode_cancelled",
-        status               = "Active",
-        partitioning_enabled = false
-      }
+      episode_uploaded ={ },
+      episode_created = { },
+      episode_cancelled = { }
     }
   },
-  bowl_screening = {
-    namespace_name    = "dtoss_bowl_screening"
+  dtoss-bowel-screening = {
+    namespace_name = "bowel-screening-for-all"
     capacity          = 1
     sku_tier          = "Premium"
-    max_playload_size = "100mb"
+    max_payload_size = "100mb"
     topics = {
-      1 = {
-        name   = "episode_uploaded",
-        status = "Active"
-      },
-      2 = {
-        name   = "episode_created",
-        status = "Active"
-      },
-      3 = {
-        name   = "episode_cancelled",
-        status = "Active"
-      }
+      episode_uploaded = { topic_name = "hello-new-episode" },
+      episode_created = { },
+      episode_cancelled = { }
     }
   }
 }
